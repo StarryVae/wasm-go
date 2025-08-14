@@ -30,9 +30,9 @@ import (
 	"github.com/higress-group/proxy-wasm-go-sdk/proxywasm/types"
 	"github.com/tidwall/gjson"
 
-	"github.com/higress-group/wasm-go/pkg/iface"
-	"github.com/higress-group/wasm-go/pkg/log"
-	"github.com/higress-group/wasm-go/pkg/matcher"
+	"github.com/StarryVae/wasm-go/pkg/iface"
+	"github.com/StarryVae/wasm-go/pkg/log"
+	"github.com/StarryVae/wasm-go/pkg/matcher"
 )
 
 type Log log.Log

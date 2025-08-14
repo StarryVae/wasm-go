@@ -17,7 +17,7 @@ package utils
 import (
 	"fmt"
 
-	"github.com/higress-group/wasm-go/pkg/wrapper"
+	"github.com/StarryVae/wasm-go/pkg/wrapper"
 )
 
 func OnMCPResponseSuccess(ctx wrapper.HttpContext, result map[string]any, debugInfo string) {

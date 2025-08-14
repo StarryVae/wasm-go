@@ -24,8 +24,8 @@ import (
 	"github.com/higress-group/proxy-wasm-go-sdk/proxywasm/types"
 	"github.com/tidwall/gjson"
 
-	"github.com/higress-group/wasm-go/pkg/log"
-	"github.com/higress-group/wasm-go/pkg/wrapper"
+	"github.com/StarryVae/wasm-go/pkg/log"
+	"github.com/StarryVae/wasm-go/pkg/wrapper"
 )
 
 func main() {}

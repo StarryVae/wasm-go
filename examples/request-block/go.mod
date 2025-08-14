@@ -1,12 +1,12 @@
-module github.com/higress-group/wasm-go/examples/request-block
+module github.com/StarryVae/wasm-go/examples/request-block
 
 go 1.24.1
 
-replace github.com/higress-group/wasm-go => ../..
+replace github.com/StarryVae/wasm-go => ../..
 
 require (
 	github.com/higress-group/proxy-wasm-go-sdk v0.0.0-20250611100342-5654e89a7a80
-	github.com/higress-group/wasm-go v0.0.0
+	github.com/StarryVae/wasm-go v0.0.0
 	github.com/tidwall/gjson v1.18.0
 )
 

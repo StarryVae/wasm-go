@@ -3,7 +3,7 @@ package tokenusage
 import (
 	"bytes"
 
-	"github.com/higress-group/wasm-go/pkg/wrapper"
+	"github.com/StarryVae/wasm-go/pkg/wrapper"
 )
 
 const (
