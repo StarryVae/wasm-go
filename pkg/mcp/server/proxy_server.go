@@ -18,9 +18,9 @@ import (
 	"encoding/json"
 	"fmt"
 
+	"github.com/StarryVae/wasm-go/pkg/log"
+	"github.com/StarryVae/wasm-go/pkg/wrapper"
 	"github.com/higress-group/proxy-wasm-go-sdk/proxywasm"
-	"github.com/higress-group/wasm-go/pkg/log"
-	"github.com/higress-group/wasm-go/pkg/wrapper"
 )
 
 // McpProxyConfig represents the configuration for MCP proxy server

@@ -15,7 +15,7 @@ linters-settings:
   lll:
     line-length: 140
   goimports:
-    local-prefixes: github.com/higress-group/wasm-go
+    local-prefixes: github.com/StarryVae/wasm-go
   gocritic:
     enabled-tags:
       - diagnostic

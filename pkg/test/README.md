@@ -338,7 +338,7 @@ func TestParseConfig(t *testing.T) {
 ## Related Resources
 
 - [proxy-wasm-go-sdk](https://github.com/higress-group/proxy-wasm-go-sdk) - Underlying SDK
-- [examples/](https://github.com/higress-group/wasm-go/tree/main/examples) - More test examples
+- [examples/](https://github.com/StarryVae/wasm-go/tree/main/examples) - More test examples
 - [proxy-wasm specification](https://github.com/proxy-wasm/spec) - WebAssembly proxy specification
 
 ---

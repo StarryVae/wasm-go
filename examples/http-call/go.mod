@@ -4,7 +4,7 @@ go 1.24.1
 
 require (
 	github.com/higress-group/proxy-wasm-go-sdk v0.0.0-20251103120604-77e9cce339d2
-	github.com/higress-group/wasm-go v0.0.0
+	github.com/StarryVae/wasm-go v0.0.0
 	github.com/stretchr/testify v1.9.0
 	github.com/tidwall/gjson v1.18.0
 )
@@ -21,4 +21,4 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-replace github.com/higress-group/wasm-go => ../../
+replace github.com/StarryVae/wasm-go => ../../

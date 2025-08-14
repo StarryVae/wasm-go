@@ -15,7 +15,7 @@ This package provides a configuration validation library for MCP (Model Context 
 ### Basic Validation
 
 ```go
-import "github.com/higress-group/wasm-go/pkg/mcp/validator"
+import "github.com/StarryVae/wasm-go/pkg/mcp/validator"
 
 // Validate a configuration YAML string
 yamlConfig := `

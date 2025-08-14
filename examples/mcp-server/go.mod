@@ -4,11 +4,11 @@ go 1.24.1
 
 toolchain go1.24.5
 
-replace github.com/higress-group/wasm-go => ../../
+replace github.com/StarryVae/wasm-go => ../../
 
 require (
 	github.com/higress-group/proxy-wasm-go-sdk v0.0.0-20251103120604-77e9cce339d2
-	github.com/higress-group/wasm-go v0.0.0-00010101000000-000000000000
+	github.com/StarryVae/wasm-go v0.0.0-00010101000000-000000000000
 	github.com/stretchr/testify v1.9.0
 	github.com/tidwall/gjson v1.18.0
 )

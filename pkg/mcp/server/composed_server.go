@@ -3,8 +3,8 @@ package server
 import (
 	"fmt"
 
-	"github.com/higress-group/wasm-go/pkg/log"
-	"github.com/higress-group/wasm-go/pkg/mcp/consts"
+	"github.com/StarryVae/wasm-go/pkg/log"
+	"github.com/StarryVae/wasm-go/pkg/mcp/consts"
 )
 
 // ComposedMCPServer represents a server composed of tools from other servers.
