@@ -645,6 +645,7 @@ type CommonHttpCtx[PluginConfig any] struct {
 	types.DefaultHttpContext
 	plugin                *CommonPluginCtx[PluginConfig]
 	config                *PluginConfig
+	routeConfig           PluginConfig
 	needRequestBody       bool
 	needResponseBody      bool
 	streamingRequestBody  bool
@@ -826,7 +827,24 @@ func (ctx *CommonHttpCtx[PluginConfig]) OnHttpRequestHeaders(numHeaders int, end
 	if config == nil {
 		return types.ActionContinue
 	}
-	ctx.config = config
+	// internal route config
+	routeConfigBytes, err := proxywasm.GetProperty([]string{"route_config"})
+	if err != nil {
+		ctx.plugin.vm.log.Errorf("get route config failed, err:%v", err)
+		return types.ActionContinue
+	}
+
+	if ctx.plugin.vm.parseRuleConfig != nil {
+		err = ctx.plugin.vm.parseRuleConfig(ctx.plugin, routeConfigBytes, *config, &ctx.routeConfig)
+	} else {
+		err = ctx.plugin.vm.parseConfig(ctx.plugin, routeConfigBytes, &ctx.routeConfig)
+	}
+	if err != nil {
+		ctx.plugin.vm.log.Errorf("merge route config failed, err:%v", err)
+		return types.ActionContinue
+	}
+	ctx.config = &ctx.routeConfig
+
 	// To avoid unexpected operations, plugins do not read the binary content body
 	if IsBinaryRequestBody() {
 		ctx.needRequestBody = false
@@ -838,7 +856,7 @@ func (ctx *CommonHttpCtx[PluginConfig]) OnHttpRequestHeaders(numHeaders int, end
 	if ctx.plugin.vm.onHttpRequestHeaders == nil {
 		return types.ActionContinue
 	}
-	return ctx.plugin.vm.onHttpRequestHeaders(ctx, *config)
+	return ctx.plugin.vm.onHttpRequestHeaders(ctx, ctx.routeConfig)
 }
 
 func (ctx *CommonHttpCtx[PluginConfig]) OnHttpRequestBody(bodySize int, endOfStream bool) types.Action {
