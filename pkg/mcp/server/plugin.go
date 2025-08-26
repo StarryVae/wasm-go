@@ -474,7 +474,8 @@ func parseConfigCore(configJson gjson.Result, config *McpServerConfig, opts *Con
 			}
 		}
 	} else {
-		return errors.New("either 'server' or 'toolSet' field must be present in the configuration")
+		// qz logic to escape global config
+		return nil
 	}
 
 	// Parse allowTools - this might need adjustment for composed servers
@@ -665,9 +666,7 @@ func Load(options ...CtxOption) {
 }
 
 func Initialize() {
-	if globalContext.servers == nil {
-		panic("At least one mcpserver needs to be added.")
-	}
+	// qz logic to allow only rest server
 	wrapper.SetCtx(
 		"mcp-server",
 		wrapper.PrePluginStartOrReload[McpServerConfig](onPluginStartOrReload),
