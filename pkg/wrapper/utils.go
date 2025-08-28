@@ -8,6 +8,11 @@ import (
 	"github.com/tidwall/gjson"
 )
 
+const (
+	ApplicationHeader       = "x-qz-auth-user-name"
+	AllApplicationConfigKey = "qz_all"
+)
+
 func UnmarshalStr(marshalledJsonStr string) string {
 	// e.g. "{\"field1\":\"value1\",\"field2\":\"value2\"}"
 	var jsonStr string
@@ -55,4 +60,16 @@ func UnifySSEChunk(data []byte) []byte {
 	data = bytes.ReplaceAll(data, []byte("\r\n"), []byte("\n"))
 	data = bytes.ReplaceAll(data, []byte("\r"), []byte("\n"))
 	return data
+}
+
+func GetApplicationConfig(jsonConfig gjson.Result) (gjson.Result, bool) {
+	application, _ := proxywasm.GetHttpRequestHeader(ApplicationHeader)
+	applicationConfig := jsonConfig.Get(application)
+	if !applicationConfig.Exists() {
+		applicationConfig = jsonConfig.Get(AllApplicationConfigKey)
+		if !applicationConfig.Exists() {
+			return applicationConfig, false
+		}
+	}
+	return applicationConfig, true
 }
