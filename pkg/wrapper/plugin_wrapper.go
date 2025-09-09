@@ -1000,8 +1000,7 @@ func (ctx *CommonHttpCtx[PluginConfig]) OnHttpRequestHeaders(numHeaders int, end
 	// internal route config
 	routeConfigBytes, err := proxywasm.GetProperty([]string{"route_config"})
 	if err != nil {
-		ctx.plugin.vm.log.Errorf("get route config failed, err:%v", err)
-		return types.ActionContinue
+		ctx.plugin.vm.log.Debugf("get route config failed, err:%v", err)
 	}
 
 	if ctx.plugin.vm.parseRuleConfig != nil {
@@ -1010,7 +1009,7 @@ func (ctx *CommonHttpCtx[PluginConfig]) OnHttpRequestHeaders(numHeaders int, end
 		err = ctx.plugin.vm.parseConfig(ctx.plugin, routeConfigBytes, &ctx.routeConfig)
 	}
 	if err != nil {
-		ctx.plugin.vm.log.Errorf("merge route config failed, err:%v", err)
+		ctx.plugin.vm.log.Debugf("merge route config failed, err:%v", err)
 		return types.ActionContinue
 	}
 	ctx.config = &ctx.routeConfig
