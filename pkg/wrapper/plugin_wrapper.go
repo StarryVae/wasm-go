@@ -838,8 +838,7 @@ func (ctx *CommonHttpCtx[PluginConfig]) OnHttpRequestHeaders(numHeaders int, end
 	// internal route config
 	routeConfigBytes, err := proxywasm.GetProperty([]string{"route_config"})
 	if err != nil {
-		ctx.plugin.vm.log.Errorf("get route config failed, err:%v", err)
-		return types.ActionContinue
+		ctx.plugin.vm.log.Debugf("get route config failed, err:%v", err)
 	}
 
 	if ctx.plugin.vm.parseRuleConfig != nil {
